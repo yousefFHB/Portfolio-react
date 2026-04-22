@@ -11,7 +11,92 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "mosalas";
+  src:
+    url("./assets/fonts/a-mosalas.otf") format("opentype"),
+    url("./assets/fonts/a-mosalas.woff") format("woff"),
+    url("./assets/fonts/a-mosalas.woff2") format("woff2"),
+    url("./assets/fonts/A-Mosalas.ttf") format("truetype"),
+    url("./assets/fonts/a-mosalas.eot") format("embedded-opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme {
+  --color-brand-navy: #000233;
   --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
 }
+
+@layer utilities {
+  .About-bg {
+    background-image: url("/src/assets/Images/About-image.jpg");
+    box-shadow: "0 2px 4px rgba(0, 0, 0, 0.1)";
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+@layer utilities {
+  .About1-bg {
+    background-image: url("/src/assets/Images/About-image1.jpg");
+    box-shadow: "0 2px 4px rgba(0, 0, 0, 0.1)";
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+@layer utilities {
+  .clip-left {
+    clip-path: polygon(0 0, 50% 0, 60% 100%, 0 100%);
+  }
+
+  .clip-right {
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 60% 100%);
+  }
+}
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  } /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  } /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-wave {
+  /* 
+     Total Time: 2s (Wave) + 4s (Pause) = 6s 
+     You can change 4s to whatever pause length you want!
+  */
+  animation: wave 4s ease-in-out infinite;
+}
+
+.tsparticles {
+  position: fixed !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 100%;
+  height: 100%;
+}
+
