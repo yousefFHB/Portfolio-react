@@ -1,88 +1,63 @@
 import React from 'react'
-import { CgHello } from 'react-icons/cg'
-import { BsLinkedin } from 'react-icons/bs'
-import { BsGithub } from 'react-icons/bs'
-import { FaAt } from 'react-icons/fa'
+import Particle from '../../Components/Particle'
+import Type from '../../Components/Type'
+import homeLogo from "../../assets/OtherImages/home-main.svg"
+import Logo from "../../assets/TechIcons/logo.svg"
 export default function About() {
   return (
     <>
-      <section className="relative h-screen ">
+      <section  dir="rtl" className=" relative bg-brand-navy h-full w-full z-0">
+        {/* Particle Background */}
+        <Particle />
 
-        {/* 1. Left Section (Navy) */}
-        <div className="absolute inset-0 bg-[var(--color-brand-navy)] clip-left z-10">
+        {/* Main Content Container */}
+        <div dir="rtl" className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-          <div className="
-    absolute 
-    top-1/2 left-[10%] 
-    -translate-y-1/2 
-    w-[30%] h-[80%] 
-    About1-bg 
-    rounded-2xl 
-    shadow-lg 
-    z-20
-  ">
-            {/* Optional: Add content inside if needed */}
-          </div>
-        </div>
+          {/* Flex Container: 
+        - items-center: Vertically center
+        - justify-end: Pushes the first child (Text) to the Right (RTL default)
+        - gap-8: Space between them
+    */}
+          <div className="flex flex-col lg:flex-row items-center justify-end gap-8 lg:gap-12">
 
+            {/* 1. Text Section (Now on the Right) */}
+            <div className="w-full lg:w-7/12 home-header text-right">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ paddingBottom: '15px' }}>
+                سلام{" "}
+                <span 
+                  className="animate-wave inline-block"
+                  style={{ transformOrigin: 'bottom right' ,fontSize:"20px"}}
+                  role="img"
+                  aria-label="wave"
+                >
+                  👋🏻
+                </span>
+              </h1>
 
+              <h1 className="text-3xl md:text-4xl font-bold mb-6 heading-name">
+                من <strong className="main-name font-[mosalas] text-blue-600">یوسف فرح بخش هستم</strong>
+              </h1>
 
-        {/* 2. Right Section (Orange/Dark) */}
-        {/* Changed bg-gray-300 to a darker color for better text visibility */}
-        <div className="absolute inset-0 bg-gray-300 clip-right z-20">
-
-          {/* Text Container: Added relative positioning and higher z-index */}
-          <div dir='rtl' className="relative z-30 flex flex-col gap-5 justify-center items-start text-[var(--color-brand-navy)] h-full top-[-12%] w-full p-10">
-            <h4 className="text-xl gap-1 flex font-bold mb-2"> سلام من </h4>
-            <div>
-              <h1 className="text-4xl font-bold mb-4">یوسف فرح بخش هستم</h1>
-              <p className="  text-lg font-bold opacity-40">Front-end Developer / Ui Designer</p>
+              {/* Typewriter Section */}
+              <div className="p-12 text-right font-bold">
+                <Type />
+              </div>
             </div>
-            <span className='flex justify-between gap-5 items-center'> <a
-              href="https://www.linkedin.com/in/YOUR_USERNAME_HERE"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black hover:text-gray-300 hover:bg-brand-navy p-3 rounded-lg shadow-xl shadow-gray-500/50 bg-gray-400/60 transition-colors duration-300"
-              aria-label="Visit my LinkedIn profile"
-            >
-              <BsLinkedin size={24} />
-            </a>
-              <a
-                href="https://www.linkedin.com/in/YOUR_USERNAME_HERE"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-black hover:text-gray-300 hover:bg-brand-navy p-3 rounded-lg shadow-xl shadow-gray-500/50 bg-gray-400/60 transition-colors duration-300"
-                aria-label="Visit my LinkedIn profile"
-              >
-                <BsGithub size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/YOUR_USERNAME_HERE"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-black hover:text-gray-300 hover:bg-brand-navy p-3 rounded-lg shadow-xl shadow-gray-500/50 bg-gray-400/60 transition-colors duration-300"
-                aria-label="Visit my LinkedIn profile"
-              >
-                <FaAt size={24} />
-              </a>
-            </span>
+
+            {/* 2. Image Section (Now on the Left) */}
+            <div className="w-full lg:w-5/12 flex justify-center lg:justify-start">
+            <img
+                src={Logo}
+                alt="home pic"
+                className="w-full max-w-[450px] h-auto object-contain"
+                style={{ maxHeight: "450px"  }}
+              />
+
+            </div>
+
           </div>
         </div>
-        <div className="absolute bottom-0  w-full h-1/9 bg-zinc-900 z-40">
-        
-      </div>
-
-
-
-
-
       </section>
-      <div className="  w-full h-1/8 bg-zinc-900 flex flex-col gap-2 z-40 items-end justify-center pt-15 p-10">
-        <h1 className='text-white text-lg font-bold text-right'>با بروز ترین فریم ورک ها (Full Stack)توسعه دهنده فول استک </h1>
-        <span dir='rtl' className="text-white w-[70%]">
-          طراح و توسعه‌دهنده وب با تمرکز بر <strong>React.js</strong>، <strong>Next.js</strong>، <strong>MongoDB</strong> و <strong>Tailwind</strong>. با بهره‌گیری از جدیدترین فریم‌ورک‌ها، رابط‌های کاربری زیبا و راه‌حل‌های قدرتمند را برای پروژه‌های شما پیاده‌سازی می‌کنم.
-        </span>
-      </div>
 
     </>
   )

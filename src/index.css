@@ -23,8 +23,46 @@
   font-style: normal;
   font-display: swap;
 }
-
+@font-face {
+  font-family: "Rezvan";
+  src:
+    url("./assets/fonts/rezvan.otf") format("opentype"),
+    url("./assets/fonts/rezvan.woff") format("woff"),
+    url("./assets/fonts/rezvan.woff2") format("woff2"),
+    url("./assets/fonts/Rezvan.ttf") format("truetype"),
+    url("./assets/fonts/rezvan.eot") format("embedded-opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Atila";
+  src:
+    url("./assets/fonts/atila.otf") format("opentype"),
+    url("./assets/fonts/atila.woff") format("woff"),
+    url("./assets/fonts/atila.woff2") format("woff2"),
+    url("./assets/fonts/Atila.ttf") format("truetype"),
+    url("./assets/fonts/atila.eot") format("embedded-opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "pen";
+  src:
+    url("./assets/fonts/far_khodkar.otf") format("opentype"),
+    url("./assets/fonts/far_khodkar.woff") format("woff"),
+    url("./assets/fonts/far_khodkar.woff2") format("woff2"),
+    url("./assets/fonts/far_khodkar.ttf") format("truetype"),
+    url("./assets/fonts/far_khodkar.eot") format("embedded-opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* colors */
 @theme {
+  --color-purple:#934cce5e;
+  --color-dark-purple:#a24dd386;
   --color-brand-navy: #000233;
   --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
 }
@@ -98,5 +136,27 @@
   background-size: cover !important;
   width: 100%;
   height: 100%;
+  
 }
 
+.fork-btn {
+  font-size: 1.1em !important;
+  padding-top: 10px !important;
+}
+
+.fork-btn-inner {
+  line-height: 1.4em !important;
+  background-color: #934cce5e !important;
+  padding: 0.25rem 1.1rem !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+
+.fork-btn-inner:hover {
+  transform: translateY(-2px) !important;
+  background-color: #a24dd386 !important;
+  border-color: #a24dd386 !important;
+}
+.fork-btn-inner::after {
+  display: none !important;
+}
