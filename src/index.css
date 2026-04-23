@@ -61,8 +61,8 @@
 }
 /* colors */
 @theme {
-  --color-purple:#934cce5e;
-  --color-dark-purple:#a24dd386;
+  --color-purple: #934cce5e;
+  --color-dark-purple: #a24dd386;
   --color-brand-navy: #000233;
   --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
 }
@@ -94,6 +94,40 @@
   .clip-right {
     clip-path: polygon(50% 0, 100% 0, 100% 100%, 60% 100%);
   }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+.skill-tag {
+  transition: all 0.2s ease;
+}
+.skill-tag:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.3);
 }
 @keyframes wave {
   0% {
@@ -136,7 +170,6 @@
   background-size: cover !important;
   width: 100%;
   height: 100%;
-  
 }
 
 .fork-btn {

@@ -1,11 +1,13 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { CgHome } from 'react-icons/cg';
-import { Link } from "react-router-dom"
+import { Link,useLocation } from "react-router-dom"
 import { CgGitFork } from 'react-icons/cg';
 import { AiFillStar } from 'react-icons/ai';
 export default function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location=useLocation();
+  const isAboutPage = location.pathname === '/about';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +35,9 @@ export default function Nav() {
       text-3xl font-[pen] 
       cursor-pointer rounded-2xl px-5 py-2
       transition-all duration-300 
-      hover:bg-[var(--color-brand-navy)] hover:text-white
+      hover:bg-[var(--color-brand-navy)] 
+      ${isAboutPage ? 'text-gray-300 hover:bg-gray-300  hover:text-brand-navy': 'hover:text-white'}
+      
       
     `}
           >

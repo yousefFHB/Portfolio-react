@@ -12,7 +12,7 @@ import next from "../../assets/TechIcons/Next.svg"
 import mui from "../../assets/TechIcons/Mui.svg"
 import mongo from "../../assets/TechIcons/Mongo.svg"
 import redux from "../../assets/TechIcons/Redux.svg"
-
+import Particle from '../../Components/Particle'
 export default function Home() {
   const skillsData = [
   { id: 1, src: js, alt: "JavaScript" },
@@ -26,14 +26,14 @@ export default function Home() {
   { id: 9, src: redux, alt: "Redux" },
 ]
 const skillItems=skillsData.map((skill)=>
-  <div className='flex flex-col items-center gap-1 hover:scale-110 transition-transform duration-300'><img
+  <div className=' group flex flex-col items-center gap-1 hover:scale-110  transition-transform duration-300'><img
                 key={skill.id}
                 src={skill.src}
                 alt={skill.alt}
                 className="w-12 h-12 object-contain "
                 title={skill.alt}
               />
-              <span className='text-center text-gray-400'>{skill.alt}</span></div>
+              <span className='text-center group-hover:text-white  text-gray-400'>{skill.alt}</span></div>
             )
   return (
     <>
@@ -41,6 +41,7 @@ const skillItems=skillsData.map((skill)=>
 
         {/* 1. Left Section (Navy) */}
         <div className="absolute inset-0 bg-[var(--color-brand-navy)] clip-left z-10">
+          <Particle/>
 
           <div className="
     absolute 
