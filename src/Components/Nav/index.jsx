@@ -7,7 +7,7 @@ import { AiFillStar } from 'react-icons/ai';
 export default function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const location=useLocation();
-  const isAboutPage = location.pathname === '/about';
+  const isAboutPage = location.pathname === '/about' || location.pathname === '/projects';
 
   useEffect(() => {
     const handleScroll = () => {
