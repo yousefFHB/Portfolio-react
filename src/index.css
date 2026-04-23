@@ -1,4 +1,16 @@
 @import "tailwindcss";
+
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: var(--color-brand-navy);
+  }
+}
 @font-face {
   font-family: "Vazirmatn";
   src:
@@ -155,6 +167,7 @@
     transform: rotate(0deg);
   }
 }
+
 
 .animate-wave {
   /* 
