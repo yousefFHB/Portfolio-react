@@ -30,10 +30,10 @@ export default function Nav() {
       <div dir='rtl' className=" w-full px-20 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <span
+         <Link to="/"> <span
             className={`
       text-3xl font-[pen] 
-      cursor-pointer rounded-2xl px-5 py-2
+      cursor-pointer rounded-2xl px-5 
       transition-all duration-300 
       hover:bg-[var(--color-brand-navy)] 
       ${isAboutPage ? 'text-gray-300 hover:bg-gray-300  hover:text-brand-navy': 'hover:text-white'}
@@ -42,7 +42,7 @@ export default function Nav() {
     `}
           >
             یوسف فرح بخش
-          </span>
+          </span></Link>
         </div>
 
 

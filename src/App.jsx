@@ -27,7 +27,6 @@ export default function App() {
             <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
           </Routes>
         </AnimatePresence>
-        <Footer />
       </main>
 
       <Footer />

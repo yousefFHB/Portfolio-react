@@ -10,7 +10,6 @@ export default function About() {
     'Material-UI (MUI)', 'REST APIs', 'Git'
   ];
 
-  // Persian strings for the typing animation – pass to <Type /> as a prop.
   const roleStrings = [
     'توسعه‌دهنده فرانت‌اند',
     'متخصص ری‌اکت',
@@ -21,11 +20,13 @@ export default function About() {
   return (
     <>
       <section
-        className="relative bg-brand-navy min-h-screen w-full z-0 overflow-hidde"
+        className="relative bg-brand-navy min-h-screen w-full z-0 overflow-hidden"
         dir="rtl"
       >
-        <Particle  />
-        <div> <div className="absolute top-20 right-10 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float"></div>
+        <Particle />
+
+        {/* Floating decorations */}
+        <div className="absolute top-20 right-10 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float"></div>
         <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float" style={{ animationDelay: '2s' }}></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 relative z-10">
@@ -37,7 +38,7 @@ export default function About() {
                 سلام{' '}
                 <span
                   className="inline-block animate-wave"
-                  style={{ transformOrigin: 'botto65right', fontSize: '2rem' }}
+                  style={{ transformOrigin: 'bottom right', fontSize: '2rem' }}
                   role="img"
                   aria-label="wave"
                 >
@@ -61,6 +62,10 @@ export default function About() {
 
               {/* CTA Button */}
               <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 href="#contact"
                 className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
@@ -98,23 +103,94 @@ export default function About() {
 
           {/* Stat cards */}
           <div className="mt-24 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-blue-500/65 transition-all duration-300">
+            <div className="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-indigo-500 transition-all duration-300">
               <div className="text-4xl font-bold text-blue-400">۳+</div>
               <div className="text-gray-300 mt-2">سال تجربه</div>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-blue-500/65 transition-all duration-300">
+            <div className="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-indigo-500 transition-all duration-300">
               <div className="text-4xl font-bold text-blue-400">۲۰+</div>
               <div className="text-gray-300 mt-2">پروژه تکمیل شده</div>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-blue-500/65 transition-all duration-300">
+            <div className="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-indigo-500 transition-all duration-300">
               <div className="text-4xl font-bold text-blue-400">۱۰۰٪</div>
               <div className="text-gray-300 mt-2">طراحی واکنش‌گرا</div>
             </div>
           </div>
-        </div></div>
 
-        {/* Floating decoration (optional cool animation) */}
-       
+          {/* Contact Me Section */}
+          <div id="contact" className="mt-32 animate-fadeInUp" style={{ animationDelay: '0.8s' }}>
+            <h3 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+              تماس با من
+            </h3>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+              {/* Contact info placeholder */}
+              <div className="bg-white/5 backdrop-blur-3xl rounded-2xl p-8 border border-white/10 hover:border-indigo-500 transition-all duration-300 text-right">
+                <h4 className="text-2xl font-bold text-blue-400 mb-6">اطلاعات تماس</h4>
+                <div className="space-y-4 text-gray-300">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">📧</span>
+                    <span>ایمیل: example@domain.com</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">📱</span>
+                    <span>تلفن: ۰۹۱۲۳۴۵۶۷۸۹</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">📍</span>
+                    <span>موقعیت: ایران، تهران</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">💬</span>
+                    <span>تلگرام: @mytelegram</span>
+                  </div>
+                </div>
+                <div className="mt-8 flex gap-4 justify-end">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-2xl">🔗</a>
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-2xl">🐦</a>
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-2xl">📷</a>
+                </div>
+              </div>
+
+              {/* Form placeholder */}
+              <div className="bg-white/5 hover:bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-indigo-500 transition-all duration-300">
+                <h4 className="text-2xl font-bold text-blue-400 mb-6 text-right">ارسال پیام</h4>
+                <form className="space-y-5 text-right">
+                  <div>
+                    <label className="block text-gray-300 mb-1">نام شما</label>
+                    <input
+                      type="text"
+                      placeholder="نام خود را وارد کنید"
+                      className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-400 transition"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-gray-300 mb-1">ایمیل</label>
+                    <input
+                      type="email"
+                      placeholder="example@email.com"
+                      className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-400 transition"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-gray-300 mb-1">پیام شما</label>
+                    <textarea
+                      rows="5"
+                      placeholder="پیام خود را بنویسید..."
+                      className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-400 transition resize-none"
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg"
+                  >
+                    ارسال پیام ←
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );
