@@ -22,7 +22,7 @@ const projects = [
     status: 'آماده انتشار',
     previewLabel: 'Analytics + Orders + Revenue',
     liveLink: '',
-    repoLink: '',
+    repoLink: 'https://github.com/yousefFHB/dashboard-react-redux',
     image:DashboardImage
   },
   {
@@ -40,7 +40,7 @@ const projects = [
     status: 'مناسب برای دمو',
     previewLabel: 'Hero + Features + Pricing',
     liveLink: '',
-    repoLink: '',
+    repoLink: 'https://github.com/yousefFHB/React-Quiz-App',
     image:QuizImage
   },
   {
@@ -255,8 +255,11 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="space-y-6">
-          <div className="text-center">
+        <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-white/[0.04] p-6 sm:p-8 lg:p-10">
+          <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl" />
+          <div className="absolute bottom-0 left-0 h-48 w-48 rounded-full bg-cyan-400/10 blur-3xl" />
+
+          <div className="relative text-center">
             <h2 className="text-3xl font-bold text-white md:text-4xl">پروژه‌های منتخب</h2>
             <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-gray-300">
               هر کارت به شکلی طراحی شده که بتواند عنوان، توضیح، استک تکنولوژی و نکات کلیدی پروژه را با ظاهر حرفه‌ای نمایش
@@ -264,7 +267,7 @@ export default function Projects() {
             </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="relative mt-10 grid gap-8 xl:grid-cols-2">
             {projects.map((project) => (
               <ProjectCard key={project.title} {...project} />
             ))}

@@ -84,7 +84,7 @@ export default function Nav() {
             درباره من
           </Link>
           <button
-            onClick={() => window.open("https://github.com/soumyajit4419/Portfolio", "_blank")}
+            onClick={() => window.open("https://github.com/yousefFHB/Portfolio-react.git", "_blank")}
             className="
     group
     flex
@@ -160,7 +160,7 @@ export default function Nav() {
             درباره من
           </Link>
           <button
-            onClick={() => window.open("https://github.com/soumyajit4419/Portfolio", "_blank")}
+            onClick={() => window.open("https://github.com/yousefFHB/Portfolio-react.git", "_blank")}
             className="mt-2 flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-4 py-3 font-bold text-white transition-all duration-300 hover:bg-blue-500"
           >
             <CgGitFork className="text-white" />
