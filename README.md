@@ -1,24 +1,63 @@
-# React + Vite
+# Portfolio React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio website built with React and Vite to present your skills, projects, and front-end UI work.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- Vite
+- Tailwind CSS
+- React Router
+- Swiper
+- React Icons
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Install dependencies:
 
-## Expanding the ESLint configuration
+```bash
+npm install
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. Start the development server:
 
+```bash
+npm run dev
+```
 
-things i want to have :
-1. the style from phone
-2. use the developer portfolio animations and ideas 
-3. use sb ideas 
-4. have my projects and link to github
-5. pictures of myself
+3. Build for production:
+
+```bash
+npm run build
+```
+
+## Optional Personal Hero Image
+
+If you want your own photo to appear on the Home page, place this file in:
+
+```text
+public/About-image1.jpg
+```
+
+That file is ignored by git, and the app now shows a fallback card automatically when the image does not exist.
+
+## Website Preview
+
+You can add a screenshot of your portfolio website in:
+
+```text
+public/website-preview.png
+```
+
+When you are ready, add this line to the README wherever you want the preview to appear:
+
+```md
+![Website Preview](./public/website-preview.png)
+```
+
+## Features
+
+- Responsive portfolio layout for mobile and desktop
+- Project showcase section with room for GitHub and live links
+- Animated UI sections and interactive styling
+- Optional personal image support without breaking the app for other users

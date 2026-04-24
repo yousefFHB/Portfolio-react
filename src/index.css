@@ -80,25 +80,6 @@
 }
 
 @layer utilities {
-  .About-bg {
-    background-image: url("/src/assets/Images/About-image.jpg");
-    box-shadow: "0 2px 4px rgba(0, 0, 0, 0.1)";
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-}
-
-@layer utilities {
-  .About1-bg {
-    background-image: url("/src/assets/Images/About-image1.jpg");
-    box-shadow: "0 2px 4px rgba(0, 0, 0, 0.1)";
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-}
-@layer utilities {
   .clip-left {
     clip-path: polygon(0 0, 50% 0, 60% 100%, 0 100%);
   }

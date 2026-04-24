@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CgHello } from 'react-icons/cg';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
@@ -81,36 +81,43 @@ const strengths = [
   },
 ];
 
+const optionalHeroImageSrc = `${import.meta.env.BASE_URL}About-image1.jpg`;
+
+function HeroImagePlaceholder({ className = '' }) {
+  return (
+    <div
+      className={`flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 p-6 text-center text-white ${className}`}
+    >
+      <div className="flex h-20 w-20 items-center justify-center rounded-[28px] border border-white/15 bg-white/10 text-2xl font-semibold tracking-[0.2em] text-blue-100">
+        YF
+      </div>
+      <h3 className="mt-6 text-2xl font-bold">Portfolio Preview</h3>
+      <p className="mt-3 max-w-sm text-sm leading-7 text-blue-100/85">
+        Add <span className="font-semibold text-white">public/About-image1.jpg</span> to show your personal image here.
+      </p>
+    </div>
+  );
+}
+
 
 export default function Home() {
-  const skillItems = skillsData.map((skill) => (
-    <div
-      key={skill.id}
-      className="group flex flex-col items-center gap-2 transition-transform duration-300 hover:scale-110"
-    >
-      <img src={skill.src} alt={skill.alt} className="h-10 w-10 object-contain lg:h-12 lg:w-12" title={skill.alt} />
-      <span className="text-center text-xs text-gray-400 transition-colors duration-300 group-hover:text-white lg:text-sm">
-        {skill.alt}
-      </span>
-    </div>
-  ));
-
-
-const [heroImage, setHeroImage] = useState(null);
+  const [heroImageStatus, setHeroImageStatus] = useState('checking');
 
   useEffect(() => {
     // تلاش برای لود کردن تصویر به صورت داینامیک
-    import('../../assets/Images/About-image1.jpg')
-      .then((module) => {
-        setHeroImage(module.default);
-      })
-      .catch((error) => {
-        console.warn("Image not found, using fallback.", error);
-        setHeroImage(null);
-      });
+    const image = new Image();
+    image.onload = () => {
+      setHeroImageStatus('ready');
+    };
+
+    image.onerror = () => {
+      setHeroImageStatus('missing');
+    };
+
+    image.src = optionalHeroImageSrc;
   }, []);
   
-  const HasImage = Boolean(heroImage);
+  const hasHeroImage = heroImageStatus === 'ready';
 
   return (
     <>
@@ -182,7 +189,11 @@ const [heroImage, setHeroImage] = useState(null);
                 <div className="relative z-10 overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/40">
                   <div className="grid gap-0">
                     <div className="min-h-[280px]">
-                      <img src={heroImage} alt="یوسف فرح بخش" className="h-full w-full object-cover" />
+                      {hasHeroImage ? (
+                        <img src={optionalHeroImageSrc} alt="یوسف فرح بخش" className="h-full w-full object-cover" />
+                      ) : (
+                        <HeroImagePlaceholder />
+                      )}
                     </div>
 
                     <div className="flex flex-col justify-between gap-6 p-6 sm:p-8">
@@ -267,10 +278,10 @@ const [heroImage, setHeroImage] = useState(null);
             <Particle />
 
             <div className="absolute left-[7%] top-1/2 z-20 hidden h-[68%] w-[34%] -translate-y-1/2 rounded-2xl shadow-lg transition-all duration-500 hover:scale-105 md:block lg:left-[10%] lg:h-[80%] lg:w-[30%] overflow-hidden">
-              {HasImage ? (
+              {hasHeroImage ? (
                 // حالت اول: نمایش تصویر اصلی
                 <img
-                  src={heroImage}
+                  src={optionalHeroImageSrc}
                   alt="About Hero"
                   className="w-full h-full object-contain"
                 />
@@ -294,7 +305,7 @@ const [heroImage, setHeroImage] = useState(null);
                     </svg>
                   </div>
                   <h3 className="text-xl font-bold mb-2">تصویر موجود نیست</h3>
-                  <p className="text-sm opacity-90">لطفاً فایل About-image1.jpg را در پوشه assets قرار دهید.</p>
+                  <p className="text-sm opacity-90">برای نمایش تصویر شخصی، فایل About-image1.jpg را داخل پوشه public قرار دهید.</p>
                 </div>
               )}
             </div>          </div>
