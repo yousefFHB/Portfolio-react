@@ -52,7 +52,7 @@ public/website-preview.png
 When you are ready, add this line to the README wherever you want the preview to appear:
 
 ```md
-![Website Preview](./public/website-preview.png)
+![Website Preview](./public/Home-page.png)
 ```
 
 ## Features
