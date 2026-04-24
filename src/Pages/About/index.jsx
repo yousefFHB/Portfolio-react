@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaEnvelope, FaGithub, FaLinkedinIn, FaLocationDot, FaPhone, FaTelegram } from 'react-icons/fa6';
+import { FaEnvelope, FaGithub, FaLinkedinIn, FaLocationDot, FaPhone, FaTelegram,FaCircleCheck } from 'react-icons/fa6';
 import Particle from '../../Components/Particle';
 import Type from '../../Components/Type';
 import Logo from '../../assets/TechIcons/logo.svg';
@@ -16,27 +16,29 @@ const skills = [
   'Tailwind CSS',
   'Material UI',
   'REST APIs',
-  'Git',
+  'Git','Bootsrap',
 ];
 
 const roleStrings = [
   'توسعه‌دهنده فرانت‌اند',
-  'متخصص React',
-  'عاشق طراحی رابط کاربری',
+  'برنامه نویس React',
+  'فری لنسر',
+  'برنامه نویس open source',
   'برنامه‌نویس خلاق',
 ];
 
 const stats = [
-  { value: '3+', label: 'سال تجربه' },
-  { value: '20+', label: 'پروژه تکمیل شده' },
+  { value: '5+', label: 'مسلط به فریم ورک ها' },
+  { value: '6+', label: 'پروژه تکمیل شده' },
   { value: '100%', label: 'طراحی واکنش‌گرا' },
 ];
 
 const contactItems = [
-  { icon: FaEnvelope, label: 'ایمیل', value: 'example@domain.com' },
-  { icon: FaPhone, label: 'تلفن', value: '09123456789' },
-  { icon: FaLocationDot, label: 'موقعیت', value: 'ایران، تهران' },
-  { icon: FaTelegram, label: 'تلگرام', value: '@mytelegram' },
+  { icon: FaEnvelope, label: 'ایمیل', value: 'youseffhbcc@gmail.com' },
+  { icon: FaPhone, label: 'تلفن', value: '09152498291' },
+  { icon: FaLocationDot, label: 'موقعیت', value: 'ایران، مشهد' },
+  { icon: FaTelegram, label: 'تلگرام', value: '@yousef_fhb' },
+  { icon: FaCircleCheck, label: 'bale', value: '@youseffhb' },
 ];
 
 const socialLinks = [
@@ -47,8 +49,8 @@ const socialLinks = [
 
 export default function About() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-brand-navy pt-28 text-white" dir="rtl">
-      <Particle />
+    <section className="relative z-0 min-h-screen overflow-hidden bg-brand-navy pt-28 text-white" dir="rtl">
+      <Particle className="pointer-events-none hidden md:block !fixed !inset-0 z-0" />
 
       <div className="absolute top-20 right-4 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl sm:right-10" />
       <div className="absolute bottom-20 left-4 h-80 w-80 rounded-full bg-cyan-400/10 blur-3xl sm:left-10" />
@@ -142,13 +144,13 @@ export default function About() {
 
               <div className="mt-6 space-y-4">
                 {contactItems.map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-slate-950/35 px-4 py-4">
+                  <div key={label} className="flex hover:bg-indigo-600/10 items-center justify-between gap-4 rounded-2xl border border-white/10 group bg-slate-950/35 px-4 py-4">
                     <div className="text-right">
                       <div className="text-sm text-gray-400">{label}</div>
-                      <div className="mt-1 text-sm text-gray-200 sm:text-base">{value}</div>
+                      <div className="mt-1 text-sm text-gray-200 sm:text-base ">{value}</div>
                     </div>
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-300">
-                      <Icon className="text-lg" />
+                      <Icon className="text-lg group-hover:text-indigo-600" />
                     </div>
                   </div>
                 ))}

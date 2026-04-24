@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { CgHello } from 'react-icons/cg';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { FaAt, FaArrowLeftLong, FaCode, FaMobileScreenButton, FaPalette } from 'react-icons/fa6';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
 import Particle from '../../Components/Particle';
 import heroImage from '../../assets/Images/About-image1.jpg';
 import js from '../../assets/TechIcons/Javascript.svg';
@@ -14,32 +17,48 @@ import next from '../../assets/TechIcons/Next.svg';
 import mui from '../../assets/TechIcons/Mui.svg';
 import mongo from '../../assets/TechIcons/Mongo.svg';
 import redux from '../../assets/TechIcons/Redux.svg';
+import router from "../../assets/TechIcons/react-router-svgrepo-com.svg"
+import ts from "../../assets/TechIcons/Typescript.svg"
+import tailwind from "../../assets/TechIcons/Tailwind.svg"
+import html from "../../assets/TechIcons/html5-svgrepo-com.svg"
+import css from "../../assets/TechIcons/css-3-svgrepo-com.svg"
+import bootstrap from "../../assets/TechIcons/bootstrap-svgrepo-com.svg"
+import scss from "../../assets/TechIcons/scss-svgrepo-com.svg"
+
 
 const skillsData = [
   { id: 1, src: js, alt: 'JavaScript' },
-  { id: 2, src: react, alt: 'React' },
-  { id: 3, src: git, alt: 'Git' },
-  { id: 4, src: postman, alt: 'Postman' },
-  { id: 5, src: node, alt: 'Node.js' },
-  { id: 6, src: next, alt: 'Next.js' },
-  { id: 7, src: mui, alt: 'Material UI' },
-  { id: 8, src: mongo, alt: 'MongoDB' },
-  { id: 9, src: redux, alt: 'Redux' },
+  { id: 2, src: ts, alt: 'TypeScript' },
+  { id: 3, src: html, alt: 'Html' },
+  { id: 4, src: css, alt: 'Css' },
+  { id: 5, src: scss, alt: 'Scss' },
+  { id: 6, src: tailwind, alt: 'Tailwind' },
+  { id: 7, src: bootstrap, alt: 'Bootstrap' },
+  { id: 8, src: react, alt: 'React' },
+  { id: 9, src: git, alt: 'Git' },
+  { id: 10, src: postman, alt: 'Postman' },
+  { id: 11, src: node, alt: 'Node.js' },
+  { id: 12, src: next, alt: 'Next.js' },
+  { id: 13, src: mui, alt: 'Material UI' },
+  { id: 14, src: mongo, alt: 'MongoDB' },
+  { id: 15, src: redux, alt: 'Redux' },
+  { id: 16, src:router , alt: 'Router' },
+
 ];
 
 const socialLinks = [
   {
-    href: 'https://www.linkedin.com/in/YOUR_USERNAME_HERE',
+    href: 'https://www.linkedin.com/in/yousef-farahbakhsh',
     label: 'LinkedIn',
     icon: BsLinkedin,
   },
   {
-    href: 'https://github.com/YOUR_USERNAME_HERE',
+    href: 'https://github.com/yousefFHB',
     label: 'GitHub',
     icon: BsGithub,
   },
   {
-    href: 'mailto:you@example.com',
+    href: 'youseffhbcc@gmail.com',
     label: 'Email',
     icon: FaAt,
   },
@@ -57,7 +76,7 @@ const strengths = [
     icon: FaCode,
   },
   {
-    title: 'کاملا واکنش‌گرا',
+    title: 'کاملا responsive',
     description: 'تمام بخش‌ها برای موبایل، تبلت و دسکتاپ از ابتدا طراحی می‌شوند تا تجربه کاربر در هر صفحه ثابت بماند.',
     icon: FaMobileScreenButton,
   },
@@ -89,7 +108,7 @@ export default function Home() {
           <div className="grid min-h-[calc(100vh-8rem)] items-center gap-10">
             <div className="space-y-7">
               <span className="inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-500/10 px-4 py-2 text-sm text-blue-100">
-                فرانت‌اند دولوپر / UI Designer
+                Front-end developer  / UI Designer
               </span>
 
               <div className="space-y-5">
@@ -264,21 +283,127 @@ export default function Home() {
               </span>
             </div>
           </div>
+          {/* add swiper for the div below  */}
 
-          <div className="absolute bottom-0 z-40 grid w-full grid-cols-5 items-center gap-y-6 bg-indigo-950 px-8 pb-6 pt-6 lg:flex lg:justify-between lg:px-20 lg:pt-8">
-            {skillItems}
+          <div className="absolute bottom-0 z-40 w-full bg-indigo-950 px-8 pb-6 pt-6 lg:px-20 lg:pt-8">
+            <div >
+              <Swiper
+                modules={[Autoplay]}
+                spaceBetween={14}
+                slidesPerView={7}
+                loop={true}
+                autoplay={{
+                
+                  disableOnInteraction: false,
+                }}
+                breakpoints={{
+                  768: {
+                    slidesPerView: 4,
+                  },
+                  900: {
+                    slidesPerView: 5,
+                  },
+                  1100: {
+                    slidesPerView: 6,
+                  },
+                }}
+              >
+                {skillsData.map((skill) => (
+                  <SwiperSlide key={skill.id}>
+                    <div className="group flex flex-col items-center gap-2 py-2 transition-transform duration-300 hover:scale-110">
+                      <img
+                        src={skill.src}
+                        alt={skill.alt}
+                        className="h-11 w-11 object-contain"
+                        title={skill.alt}
+                      />
+                      <span className="text-center text-xs text-gray-400 transition-colors duration-300 group-hover:text-white">
+                        {skill.alt}
+                      </span>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+
+            
           </div>
         </section>
 
-        <div className="flex w-full flex-col items-end justify-center gap-3 bg-indigo-950 px-8 py-10 text-right lg:p-10">
-          <h1 className="text-base font-bold text-white lg:text-lg">
-            با بروز ترین فریم ورک ها (Full Stack)توسعه دهنده فول استک
-          </h1>
-          <span dir="rtl" className="max-w-4xl text-sm leading-8 text-white lg:w-[70%] lg:text-base">
-            طراح و توسعه‌دهنده وب با تمرکز بر <strong>React.js</strong>، <strong>Next.js</strong>، <strong>MongoDB</strong> و{' '}
-            <strong>Tailwind</strong>. با بهره‌گیری از جدیدترین فریم‌ورک‌ها، رابط‌های کاربری زیبا و راه‌حل‌های قدرتمند را
-            برای پروژه‌های شما پیاده‌سازی می‌کنم.
-          </span>
+        <div className="bg-brand-navy px-8 pb-20 pt-16 text-white lg:px-20">
+          <div className="mx-auto flex max-w-7xl flex-col gap-12">
+            <div className="grid gap-5 lg:grid-cols-3">
+              {strengths.map(({ title, description, icon: Icon }) => (
+                <div
+                  key={title}
+                  className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-300 hover:border-blue-400/30 hover:bg-white/10"
+                >
+                  <div className="flex items-center justify-end gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-300">
+                      <Icon className="text-lg" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white">{title}</h3>
+                  </div>
+                  <p className="mt-4 text-sm leading-8 text-gray-300 lg:text-base">{description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="rounded-[32px] border border-white/10 bg-slate-950/35 p-6 backdrop-blur-2xl lg:p-8">
+              <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
+                <div className="space-y-4 text-right">
+                  <h2 className="text-3xl font-bold text-white lg:text-4xl">استک من برای ساخت رابط‌های مدرن</h2>
+                  <p className="text-base leading-8 text-gray-300 lg:text-lg">
+                    با استفاده از ابزارهای به‌روز فرانت‌اند، رابط‌هایی طراحی و پیاده‌سازی می‌کنم که هم از نظر بصری قوی
+                    باشند و هم از نظر توسعه‌پذیری، عملکرد و تجربه کاربری استاندارد باقی بمانند.
+                  </p>
+                </div>
+                <div className="space-y-5 text-right">
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-5 backdrop-blur-xl">
+                    <h3 className="text-xl font-bold text-white">درباره من</h3>
+                    <p className="mt-3 leading-8 text-gray-300">
+                      من یوسف فرح بخش هستم، توسعه‌دهنده فرانت‌اند با تمرکز روی ساخت رابط‌های کاربری مدرن، تمیز و
+                      قابل توسعه. بیشتر از هر چیز به این علاقه دارم که طراحی خوب را به تجربه‌ای سریع، روان و کاربردی
+                      تبدیل کنم.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-[24px] border border-white/10 bg-white/5 p-5 backdrop-blur-xl">
+                      <h4 className="text-lg font-bold text-blue-400">تمرکز اصلی من</h4>
+                      <p className="mt-3 text-sm leading-8 text-gray-300">
+                        توسعه پروژه‌های React و Next.js، طراحی رابط‌های responsive و ساخت کامپوننت‌هایی که هم زیبا
+                        باشند و هم در پروژه‌های واقعی قابل نگهداری بمانند.
+                      </p>
+                    </div>
+
+                    <div className="rounded-[24px] border border-white/10 bg-white/5 p-5 backdrop-blur-xl">
+                      <h4 className="text-lg font-bold text-blue-400">شیوه کاری من</h4>
+                      <p className="mt-3 text-sm leading-8 text-gray-300">
+                        سعی می‌کنم در هر پروژه بین ظاهر حرفه‌ای، تجربه کاربر، ساختار تمیز کد و آمادگی برای توسعه‌های
+                        بعدی تعادل برقرار کنم.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-[24px] border border-white/10 bg-slate-900/40 p-5">
+                    <h4 className="text-lg font-bold text-white">چیزی که در کار من مهم است</h4>
+                    <div className="mt-4 grid gap-3 text-sm text-gray-300">
+                      <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                        طراحی رابط کاربری با جزئیات دقیق و ظاهر حرفه‌ای
+                      </div>
+                      <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                        تجربه کاربری روان در موبایل، تبلت و دسکتاپ
+                      </div>
+                      <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                        کدنویسی تمیز و ساختار مناسب برای رشد پروژه
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

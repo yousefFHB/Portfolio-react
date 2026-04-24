@@ -3,6 +3,8 @@ import { Link ,useLocation} from 'react-router-dom';
 import { FaArrowLeftLong, FaCode, FaDisplay, FaMobileScreenButton, FaPaintbrush, FaRocket } from 'react-icons/fa6';
 import Particle from '../../Components/Particle';
 import ProjectCard from '../../Components/ProjectCard';
+import QuizImage from "../../assets/Images/Quiz.png"
+import DashboardImage from "../../assets/Images/Dashboard.png"
 
 const projects = [
   {
@@ -21,6 +23,7 @@ const projects = [
     previewLabel: 'Analytics + Orders + Revenue',
     liveLink: '',
     repoLink: '',
+    image:DashboardImage
   },
   {
     title: 'لندینگ SaaS آموزشی',
@@ -38,6 +41,7 @@ const projects = [
     previewLabel: 'Hero + Features + Pricing',
     liveLink: '',
     repoLink: '',
+    image:QuizImage
   },
   {
     title: 'اپلیکیشن رزرو نوبت پزشکی',
