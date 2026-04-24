@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CgHello } from 'react-icons/cg';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
@@ -7,7 +7,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import Particle from '../../Components/Particle';
-import heroImage from '../../assets/Images/About-image1.jpg';
 import js from '../../assets/TechIcons/Javascript.svg';
 import react from '../../assets/TechIcons/React.svg';
 import git from '../../assets/TechIcons/Git.svg';
@@ -42,7 +41,7 @@ const skillsData = [
   { id: 13, src: mui, alt: 'Material UI' },
   { id: 14, src: mongo, alt: 'MongoDB' },
   { id: 15, src: redux, alt: 'Redux' },
-  { id: 16, src:router , alt: 'Router' },
+  { id: 16, src: router, alt: 'Router' },
 
 ];
 
@@ -82,6 +81,7 @@ const strengths = [
   },
 ];
 
+
 export default function Home() {
   const skillItems = skillsData.map((skill) => (
     <div
@@ -94,6 +94,23 @@ export default function Home() {
       </span>
     </div>
   ));
+
+
+const [heroImage, setHeroImage] = useState(null);
+
+  useEffect(() => {
+    // تلاش برای لود کردن تصویر به صورت داینامیک
+    import('../../assets/Images/About-image1.jpg')
+      .then((module) => {
+        setHeroImage(module.default);
+      })
+      .catch((error) => {
+        console.warn("Image not found, using fallback.", error);
+        setHeroImage(null);
+      });
+  }, []);
+  
+  const HasImage = Boolean(heroImage);
 
   return (
     <>
@@ -249,8 +266,38 @@ export default function Home() {
           <div className="absolute inset-0 bg-[var(--color-brand-navy)] clip-left z-10">
             <Particle />
 
-            <div className="absolute left-[7%] top-1/2 z-20 hidden h-[68%] w-[34%] -translate-y-1/2 rounded-2xl shadow-lg transition-all duration-500 hover:scale-105 md:block lg:left-[10%] lg:h-[80%] lg:w-[30%] About1-bg" />
-          </div>
+            <div className="absolute left-[7%] top-1/2 z-20 hidden h-[68%] w-[34%] -translate-y-1/2 rounded-2xl shadow-lg transition-all duration-500 hover:scale-105 md:block lg:left-[10%] lg:h-[80%] lg:w-[30%] overflow-hidden">
+              {HasImage ? (
+                // حالت اول: نمایش تصویر اصلی
+                <img
+                  src={heroImage}
+                  alt="About Hero"
+                  className="w-full h-full object-contain"
+                />
+              ) : (
+                // حالت دوم: نمایش دمو (جایگزین)
+                <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 text-white p-6 text-center">
+                  <div className="mb-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-16 w-16 mx-auto"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">تصویر موجود نیست</h3>
+                  <p className="text-sm opacity-90">لطفاً فایل About-image1.jpg را در پوشه assets قرار دهید.</p>
+                </div>
+              )}
+            </div>          </div>
 
           <div className="absolute inset-0 bg-gray-300 clip-right z-20">
             <div
@@ -293,7 +340,7 @@ export default function Home() {
                 slidesPerView={7}
                 loop={true}
                 autoplay={{
-                
+
                   disableOnInteraction: false,
                 }}
                 breakpoints={{
@@ -326,7 +373,7 @@ export default function Home() {
               </Swiper>
             </div>
 
-            
+
           </div>
         </section>
 
