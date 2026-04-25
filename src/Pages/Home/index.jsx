@@ -86,7 +86,7 @@ const optionalHeroImageSrc = `${import.meta.env.BASE_URL}About-image1.jpg`;
 function HeroImagePlaceholder({ className = '' }) {
   return (
     <div
-      className={`flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 p-6 text-center text-white ${className}`}
+      className={`flex h-full w-full flex-col items-center justify-center bg-linear-to-br from-slate-950 via-blue-950 to-indigo-950 p-6 text-center text-white ${className}`}
     >
       <div className="flex h-20 w-20 items-center justify-center rounded-[28px] border border-white/15 bg-white/10 text-2xl font-semibold tracking-[0.2em] text-blue-100">
         YF
@@ -287,7 +287,7 @@ export default function Home() {
                 />
               ) : (
                 // حالت دوم: نمایش دمو (جایگزین)
-                <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 text-white p-6 text-center">
+                <div className="w-full h-full flex flex-col items-center justify-center bg-linear-to-br from-brand-navy to-indigo-800 text-white p-6 text-center">
                   <div className="mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

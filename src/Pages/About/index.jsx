@@ -37,14 +37,14 @@ const contactItems = [
   { icon: FaEnvelope, label: 'ایمیل', value: 'youseffhbcc@gmail.com' },
   { icon: FaPhone, label: 'تلفن', value: '09152498291' },
   { icon: FaLocationDot, label: 'موقعیت', value: 'ایران، مشهد' },
-  { icon: FaTelegram, label: 'تلگرام', value: '@yousef_fhb' },
+  { icon: FaTelegram, label: 'تلگرام', value: '@Yousef_fhb' },
   { icon: FaCircleCheck, label: 'bale', value: '@youseffhb' },
 ];
 
 const socialLinks = [
-  { icon: FaGithub, href: '#', label: 'GitHub' },
-  { icon: FaLinkedinIn, href: '#', label: 'LinkedIn' },
-  { icon: FaTelegram, href: '#', label: 'Telegram' },
+  { icon: FaGithub, href: 'https://github.com/yousefFHB', label: 'GitHub' },
+  { icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/yousef-farahbakhsh', label: 'LinkedIn' },
+  { icon: FaTelegram, href: 'https://t.me/Yousef_fhb', label: 'Telegram' },
 ];
 
 export default function About() {
@@ -147,7 +147,7 @@ export default function About() {
                   <div key={label} className="flex hover:bg-indigo-600/10 items-center justify-between gap-4 rounded-2xl border border-white/10 group bg-slate-950/35 px-4 py-4">
                     <div className="text-right">
                       <div className="text-sm text-gray-400">{label}</div>
-                      <div className="mt-1 text-sm text-gray-200 sm:text-base ">{value}</div>
+                      <div dir='ltr' className="mt-1  text-sm text-gray-200 sm:text-base ">{value}</div>
                     </div>
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-300">
                       <Icon className="text-lg group-hover:text-indigo-600" />

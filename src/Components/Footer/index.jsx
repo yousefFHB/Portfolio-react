@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedinIn, FaTelegramPlane, FaEnvelope } from 'react-icons/fa';
-
+import { FaGithub, FaLinkedinIn, FaTelegramPlane, FaEnvelope  } from 'react-icons/fa';
+import { FaCircleCheck } from 'react-icons/fa6';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -51,7 +51,7 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-blue-400">شبکه‌های اجتماعی</h4>
             <div className="flex justify-center md:justify-end gap-4">
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/yousefFHB"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-gray-300 hover:bg-blue-600 hover:text-white transition-all duration-300"
@@ -60,7 +60,7 @@ export default function Footer() {
                 <FaGithub className="text-lg" />
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/yousef-farahbakhsh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-gray-300 hover:bg-blue-600 hover:text-white transition-all duration-300"
@@ -69,7 +69,7 @@ export default function Footer() {
                 <FaLinkedinIn className="text-lg" />
               </a>
               <a
-                href="https://t.me/yourtelegram"
+                href="https://t.me/Yousef_fhb"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-gray-300 hover:bg-blue-600 hover:text-white transition-all duration-300"
@@ -78,7 +78,16 @@ export default function Footer() {
                 <FaTelegramPlane className="text-lg" />
               </a>
               <a
-                href="mailto:youremail@example.com"
+                href="https://web.bale.ai/youseffhb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-gray-300 hover:bg-blue-600 hover:text-white transition-all duration-300"
+                aria-label="bale"
+              >
+                <FaCircleCheck className="text-lg" />
+              </a>
+              <a
+                href="mailto:youseffhbcc@gmail.com"
                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-gray-300 hover:bg-blue-600 hover:text-white transition-all duration-300"
                 aria-label="Email"
               >

@@ -5,6 +5,7 @@ import Particle from '../../Components/Particle';
 import ProjectCard from '../../Components/ProjectCard';
 import QuizImage from "../../assets/Images/Quiz.png"
 import DashboardImage from "../../assets/Images/Dashboard.png"
+import Heart from "../../assets/Images/Heart.png"
 
 const projects = [
   {
@@ -12,7 +13,7 @@ const projects = [
     category: 'React Dashboard',
     description:
       'یک پنل مدیریتی مدرن برای کنترل سفارش‌ها، موجودی، گزارش فروش و رفتار کاربران با تمرکز روی سرعت، خوانایی دیتا و تجربه کاربری روان.',
-    stack: ['React', 'Redux Toolkit', 'Tailwind CSS', 'Chart UI'],
+    stack: ['React', 'Redux Toolkit', 'Tailwind CSS', 'Chart UI','Layout','Router'],
     highlights: [
       'طراحی ماژولار برای ویجت‌ها، جدول‌ها و کارت‌های آماری',
       'حالت‌های تعاملی برای فیلتر، جستجو و مدیریت وضعیت سفارش',
@@ -26,39 +27,39 @@ const projects = [
     image:DashboardImage
   },
   {
-    title: 'لندینگ SaaS آموزشی',
-    category: 'Marketing Landing',
+    title: 'برگزاری آزمون ',
+    category: 'Quiz App',
     description:
-      'صفحه فرود حرفه‌ای برای معرفی یک محصول آموزشی با سکشن‌های قانع‌کننده، انیمیشن نرم، ساختار اسکرول‌محور و تمرکز روی تبدیل بازدیدکننده به کاربر.',
-    stack: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Responsive UI'],
+'وب اپ برای برگزاری ازمون با قابلیت ساخت ازمون مدنظر برای کاربران دیگر همراه با لاگین',    stack: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Responsive UI'],
     highlights: [
-      'Hero قدرتمند با CTA واضح و سلسله‌مراتب بصری دقیق',
-      'طراحی سکشن‌های ویژگی، قیمت‌گذاری و نظرات کاربران',
+      'در دسترس برای دو زبان فارسی و انگلیسی / همچنین آماده برای ساخت ازمون در هر دو زبان',
+      'طراحی سکشن های متفاوت برای ساخت ازمون / شرکت در آزمون و دیدن ازمون ها',
       'استفاده از motion برای ایجاد حس زنده بدون شلوغی',
     ],
-    accent: 'from-cyan-400 via-blue-500 to-slate-900',
+    accent: 'from-amber-400 via-orange-500 to-slate-950',
     status: 'مناسب برای دمو',
-    previewLabel: 'Hero + Features + Pricing',
+    previewLabel: 'Quiz + Features + Creating',
     liveLink: '',
     repoLink: 'https://github.com/yousefFHB/React-Quiz-App',
     image:QuizImage
   },
   {
-    title: 'اپلیکیشن رزرو نوبت پزشکی',
-    category: 'Booking Experience',
+    title: 'پیش بینی وضعیت بیمار حمله قلبی',
+    category: 'ML Heart Disease Prediction',
     description:
-      'یک تجربه فرانت‌اند برای انتخاب پزشک، فیلتر تخصص‌ها، مشاهده زمان‌های آزاد و ثبت رزرو که سادگی استفاده را در کنار ساختار حرفه‌ای حفظ می‌کند.',
-    stack: ['React Router', 'JavaScript', 'Tailwind CSS', 'Form UX'],
+      'یک پروژه دانشگاهی برمبنای پایتون جاوا اسکریپت برای که براساس داده های بیماران مختلف ، احتمال حمله قلبی آنهارا بررسی میکند',
+    stack: ['Python','Html', 'JavaScript', ' CSS'],
     highlights: [
-      'جریان رزرو چندمرحله‌ای با تمرکز بر کاهش خطای کاربر',
-      'نمایش واضح تایم‌اسلات‌ها و وضعیت رزرو',
-      'ساختار قابل توسعه برای اتصال به API و احراز هویت',
+      'پیش بینی براساس داده های ورودی',
+      'تحلیل داده ها بکمک پایتون',
+      'طراحی ظاهری ساده برای تجربه بهتر کاربر',
     ],
     accent: 'from-emerald-400 via-teal-500 to-slate-900',
     status: 'قابل توسعه',
     previewLabel: 'Doctors + Slots + Confirm',
     liveLink: '',
-    repoLink: '',
+    repoLink: 'https://github.com/yousefFHB/ML-Heart-Disease-Prediction',
+    image:Heart
   },
   {
     title: 'ویترین محصولات فروشگاهی',
