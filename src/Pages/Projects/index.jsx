@@ -1,19 +1,29 @@
 import React from 'react';
-import { Link ,useLocation} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaArrowLeftLong, FaCode, FaDisplay, FaMobileScreenButton, FaPaintbrush, FaRocket } from 'react-icons/fa6';
 import Particle from '../../Components/Particle';
 import ProjectCard from '../../Components/ProjectCard';
+import Seo from '../../Components/Seo';
 import QuizImage from "../../assets/Images/Quiz.png"
 import DashboardImage from "../../assets/Images/Dashboard.png"
+import Heartvd from "../../assets/Videos/Heart.mp4"
+import Cartvd from "../../assets/Videos/Cart.mp4"
+import Dashboardvd from "../../assets/Videos/dashboard.mp4"
+import Quizvd from "../../assets/Videos/Quiz.mp4"
+import Porschevd from "../../assets/Videos/Porsche.mp4"
 import Heart from "../../assets/Images/Heart.png"
+import cart from "../../assets/Images/cart.png"
+import porsche from "../../assets/Images/Porsche.png"
+import bs from "../../assets/Images/BootsTrap.png"
 
-const projects = [
+export const projects = [
   {
     title: 'داشبورد مدیریت فروشگاه',
     category: 'React Dashboard',
+    slug: 'store-dashboard',
     description:
       'یک پنل مدیریتی مدرن برای کنترل سفارش‌ها، موجودی، گزارش فروش و رفتار کاربران با تمرکز روی سرعت، خوانایی دیتا و تجربه کاربری روان.',
-    stack: ['React', 'Redux Toolkit', 'Tailwind CSS', 'Chart UI','Layout','Router'],
+    stack: ['React', 'Redux Toolkit', 'Tailwind CSS', 'Chart UI', 'Layout', 'Router'],
     highlights: [
       'طراحی ماژولار برای ویجت‌ها، جدول‌ها و کارت‌های آماری',
       'حالت‌های تعاملی برای فیلتر، جستجو و مدیریت وضعیت سفارش',
@@ -24,13 +34,16 @@ const projects = [
     previewLabel: 'Analytics + Orders + Revenue',
     liveLink: '',
     repoLink: 'https://github.com/yousefFHB/dashboard-react-redux',
-    image:DashboardImage
+    image: DashboardImage,
+    video: Dashboardvd
+
   },
   {
     title: 'برگزاری آزمون ',
     category: 'Quiz App',
+    slug: 'quiz-app',
     description:
-'وب اپ برای برگزاری ازمون با قابلیت ساخت ازمون مدنظر برای کاربران دیگر همراه با لاگین',    stack: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Responsive UI'],
+      'وب اپ برای برگزاری ازمون با قابلیت ساخت ازمون مدنظر برای کاربران دیگر همراه با لاگین', stack: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Responsive UI','Auth'],
     highlights: [
       'در دسترس برای دو زبان فارسی و انگلیسی / همچنین آماده برای ساخت ازمون در هر دو زبان',
       'طراحی سکشن های متفاوت برای ساخت ازمون / شرکت در آزمون و دیدن ازمون ها',
@@ -41,34 +54,39 @@ const projects = [
     previewLabel: 'Quiz + Features + Creating',
     liveLink: '',
     repoLink: 'https://github.com/yousefFHB/React-Quiz-App',
-    image:QuizImage
+    image: QuizImage,
+    video:Quizvd
+
   },
   {
     title: 'پیش بینی وضعیت بیمار حمله قلبی',
     category: 'ML Heart Disease Prediction',
+    slug: 'heart-disease-prediction',
     description:
       'یک پروژه دانشگاهی برمبنای پایتون جاوا اسکریپت برای که براساس داده های بیماران مختلف ، احتمال حمله قلبی آنهارا بررسی میکند',
-    stack: ['Python','Html', 'JavaScript', ' CSS'],
+    stack: ['Python', 'Html', 'JavaScript', ' CSS'],
     highlights: [
       'پیش بینی براساس داده های ورودی',
       'تحلیل داده ها بکمک پایتون',
       'طراحی ظاهری ساده برای تجربه بهتر کاربر',
     ],
-    accent: 'from-emerald-400 via-teal-500 to-slate-900',
+    accent: 'from-slate-500 via-indigo-500 to-slate-950',
     status: 'قابل توسعه',
     previewLabel: 'Doctors + Slots + Confirm',
     liveLink: '',
     repoLink: 'https://github.com/yousefFHB/ML-Heart-Disease-Prediction',
-    image:Heart
+    image: Heart,
+    video:Heartvd
   },
   {
     title: 'ویترین محصولات فروشگاهی',
     category: 'E-commerce UI',
+    slug: 'ecommerce-ui',
     description:
       'رابط کاربری یک فروشگاه مدرن با تمرکز روی نمایش محصول، فیلترهای کاربردی، صفحه جزئیات حرفه‌ای و تجربه خریدی که حس برند را منتقل می‌کند.',
-    stack: ['React', 'MUI', 'State Management', 'Micro Interactions'],
+    stack: ['React', 'Router', 'State Management', 'Redux', 'Auth'],
     highlights: [
-      'صفحه لیست محصولات با فیلتر، مرتب‌سازی و کارت‌های جذاب',
+      ' صفحه لیست کالاها و نمایش آنها در سبد خرید، صقحه جزئیات محصولات',
       'طراحی جزئیات محصول با گالری، ویژگی‌ها و CTA فروش',
       'پشتیبانی از الگوهای UI مناسب برای رشد کاتالوگ',
     ],
@@ -76,43 +94,54 @@ const projects = [
     status: 'نمونه فرانت‌اند',
     previewLabel: 'Catalog + Product Page + Cart',
     liveLink: '',
-    repoLink: '',
+    repoLink: 'https://github.com/yousefFHB/Login-Fetch-route',
+    image: cart,
+    video:Cartvd
+
   },
   {
-    title: 'پرتال محتوایی و بلاگ',
-    category: 'Content Platform',
+    title: 'کلون وبسایت پورشه',
+    category: 'Porsche.com clone',
+    slug: 'porsche-clone',
     description:
-      'یک رابط محتوایی برای انتشار مقاله، دسته‌بندی موضوعات، جستجوی سریع و مطالعه راحت که برای پروژه‌های رسانه‌ای و شخصی کاملا مناسب است.',
-    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'SEO-ready UI'],
+      'بازسازی وبسایت پورشه و طراحی ان با sass ',
+    stack: ['Js', 'Html', 'sass', 'Smooth-animation'],
     highlights: [
-      'طراحی تمیز برای لیست مقالات و صفحه مطالعه',
-      'ساختار مناسب برای اتصال به CMS یا API محتوا',
+      'طراحی تمیز برای منو و انیمیشن دار',
+      'استفاده از flex-box / Grid',
       'تمرکز روی سرعت بارگذاری و خوانایی متن',
     ],
     accent: 'from-amber-400 via-orange-500 to-slate-950',
     status: 'ساختار آماده',
-    previewLabel: 'Articles + Search + Reading Mode',
+    previewLabel: 'Clone website',
     liveLink: '',
-    repoLink: '',
+    repoLink: 'https://github.com/yousefFHB/porsche-website-clone',
+    image : porsche,
+    video:Porschevd
+
   },
   {
-    title: 'پورتفولیوی شخصی خلاقانه',
+    title: 'وبسایت با bootsrap',
     category: 'Personal Brand',
+    slug: 'bootstrap-website',
     description:
-      'یک سایت شخصی برای معرفی مهارت‌ها، پروژه‌ها و مسیر حرفه‌ای با زبان بصری خاص، انیمیشن کنترل‌شده و چیدمانی که شخصیت برند را نشان می‌دهد.',
-    stack: ['React', 'Framer Motion', 'Tailwind CSS', 'Creative Layout'],
+      'طراحی وبسایت بکمک bootstrap',
+    stack: ['Bootstrap','Js','Html','Responsiv Ui'],
     highlights: [
-      'هویت بصری یکپارچه برای معرفی شخصی و نمونه‌کار',
-      'بخش پروژه‌ها با کارت‌های قابل شخصی‌سازی',
-      'استفاده از افکت‌های ملایم برای جذابیت بیشتر صفحه',
+      'استفاده از کامپوننت های آماده bootsrap',
+      'استفاده از اسلایدر ',
+      'طراحی ریسپانسیو برای سایزی مختلف',
     ],
     accent: 'from-slate-500 via-indigo-500 to-slate-950',
     status: 'قابل شخصی‌سازی',
-    previewLabel: 'Brand Story + Projects + Contact',
+    previewLabel: 'Product fetch + Bootstrap',
     liveLink: '',
-    repoLink: '',
+    repoLink: 'https://github.com/yousefFHB/responsive-product-page-bootstrap',
+    image:bs
   },
 ];
+
+export const getProjectBySlug = (slug) => projects.find((project) => project.slug === slug);
 
 const strengths = [
   {
@@ -121,7 +150,7 @@ const strengths = [
     icon: FaPaintbrush,
   },
   {
-    title: 'توسعه واکنش‌گرا',
+    title: 'توسعه Responsive',
     description: 'همه پروژه‌ها از ابتدا برای دسکتاپ و موبایل طراحی می‌شوند تا تجربه کاربر در هر دستگاه یکدست باشد.',
     icon: FaMobileScreenButton,
   },
@@ -133,7 +162,7 @@ const strengths = [
 ];
 
 const quickStats = [
-  { value: '6', label: 'نمونه کارت پروژه' },
+  { value: '6', label: 'نمونه پروژه' },
   { value: '100%', label: 'رویکرد واکنش‌گرا' },
   { value: 'UI + UX', label: 'تمرکز اصلی پروژه‌ها' },
 ];
@@ -142,6 +171,10 @@ export default function Projects() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-brand-navy pt-28 text-white" dir="rtl">
+      <Seo
+        title="Projects | Yousef Farahbakhsh"
+        description="Browse selected front-end projects by Yousef Farahbakhsh, including React dashboards, UI showcases, responsive websites, and web apps."
+      />
       <Particle />
 
       <div className="absolute right-0 top-16 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
@@ -169,16 +202,16 @@ export default function Projects() {
             </div>
 
             <div className="flex flex-wrap justify-start gap-3">
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200">
+              <span className="rounded-full border hover:bg-blue-700 hover:shadow-2xl hover:shadow-gray-600 transition-all border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200">
                 React & Next.js
               </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200">
+              <span className="rounded-full border hover:bg-blue-700 hover:shadow-2xl hover:shadow-gray-600 transition-all border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200">
                 Tailwind & MUI
               </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200">
+              <span className="rounded-full border hover:bg-blue-700 hover:shadow-2xl hover:shadow-gray-600 transition-all border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200">
                 Responsive Design
               </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200">
+              <span className="rounded-full border hover:bg-blue-700 hover:shadow-2xl hover:shadow-gray-600 transition-all border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200">
                 Modern UI Systems
               </span>
             </div>
@@ -277,19 +310,24 @@ export default function Projects() {
 
         <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-            <h3 className="text-3xl font-bold text-white">چیزی که در این صفحه آماده شده</h3>
-            <p className="mt-5 leading-8 text-gray-300">
-              ساختار صفحه طوری بسته شده که برای معرفی پروژه‌های فرانت‌اند خیلی سریع قابل استفاده باشد: سکشن معرفی،
-              آمار کلی، کارت‌های پروژه و یک بخش پایانی برای بیان ارزش کاری. این یعنی هم ظاهر صفحه کامل شده و هم برای
-              ادامه شخصی‌سازی مسیر راحتی داری.
-            </p>
+  <h3 className="text-3xl font-bold text-white">تکنولوژی‌های مورد استفاده</h3>
 
-            <div className="mt-8 space-y-3 text-gray-200">
-              <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">کارت پروژه reusable برای استفاده مجدد</div>
-              <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">چیدمان هماهنگ با هوم و About</div>
-              <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">ظاهر مناسب برای اضافه کردن اسکرین‌شات و لینک واقعی</div>
-            </div>
-          </div>
+  <div className="mt-8 space-y-3 text-gray-200">
+    <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">
+      توسعه رابط کاربری مدرن با <strong>React</strong> و مدیریت وضعیت پیشرفته با <strong>Redux</strong>
+    </div>
+    <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">
+      مسیریابی حرفه‌ای صفحات با <strong>React Router</strong> و ساختار ماژولار
+    </div>
+    <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">
+      طراحی responsive و زیبا با ترکیب <strong>Bootstrap</strong>، <strong>Sass</strong>، <strong>HTML</strong> و <strong>CSS</strong>
+    </div>
+    <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">
+      پیاده‌سازی منطق سمت کلاینت با <strong>JavaScript</strong> و بهینه‌سازی عملکرد
+    </div>
+  </div>
+</div>
+
 
           <div className="grid gap-6 sm:grid-cols-3 lg:grid-cols-1">
             {strengths.map(({ title, description, icon: Icon }) => (

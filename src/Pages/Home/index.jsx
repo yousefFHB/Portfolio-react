@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import Particle from '../../Components/Particle';
+import Seo from '../../Components/Seo';
 import js from '../../assets/TechIcons/Javascript.svg';
 import react from '../../assets/TechIcons/React.svg';
 import git from '../../assets/TechIcons/Git.svg';
@@ -75,7 +76,7 @@ const strengths = [
     icon: FaCode,
   },
   {
-    title: 'کاملا responsive',
+    title: 'responsive کاملا ',
     description: 'تمام بخش‌ها برای موبایل، تبلت و دسکتاپ از ابتدا طراحی می‌شوند تا تجربه کاربر در هر صفحه ثابت بماند.',
     icon: FaMobileScreenButton,
   },
@@ -116,11 +117,34 @@ export default function Home() {
 
     image.src = optionalHeroImageSrc;
   }, []);
-  
+
   const hasHeroImage = heroImageStatus === 'ready';
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Yousef Farahbakhsh',
+    alternateName: ['یوسف فرح بخش', 'یوسف فرحبخش'],
+    jobTitle: 'Front-End Developer',
+    description: 'یوسف فرح بخش توسعه دهنده فرانت اند و سازنده رابط های کاربری مدرن با React و Next.js',
+    email: 'mailto:youseffhbcc@gmail.com',
+    url: typeof window !== 'undefined' ? window.location.origin : undefined,
+    sameAs: [
+      'https://github.com/yousefFHB',
+      'https://www.linkedin.com/in/yousef-farahbakhsh',
+      'https://t.me/Yousef_fhb',
+    ],
+    knowsAbout: ['React', 'Next.js', 'Tailwind CSS', 'JavaScript', 'Responsive Design'],
+  };
 
   return (
     <>
+      <Seo
+        title="یوسف فرح بخش | Yousef Farahbakhsh | Front-End Developer Portfolio"
+        description="Portfolio of Yousef Farahbakhsh (یوسف فرح بخش), a front-end developer building modern React, Next.js, and responsive web experiences."
+        keywords="Yousef Farahbakhsh, Yousef, یوسف فرح بخش, یوسف فرحبخش, یوسف, توسعه دهنده فرانت اند, برنامه نویس فرانت اند, React, Next.js, Tailwind CSS, portfolio"
+        image="/Home-page.png"
+        structuredData={structuredData}
+      />
       <section className="relative overflow-hidden bg-brand-navy pt-28 text-white md:hidden" dir="rtl">
         <Particle />
 
@@ -136,10 +160,10 @@ export default function Home() {
               </span>
 
               <div className="space-y-5">
-                <h1 className="text-4xl font-bold leading-tight sm:text-5xl">
+                <h1 className="text-4xl font-Bold leading-tight sm:text-5xl">
                   سلام، من
-                  <span className="block text-blue-400">یوسف فرح بخش</span>
-                  هستم
+                  <span className="block font-[Rezvan] text-blue-400">یوسف فرح بخش</span>
+                  <p className="font-[Rezvan]">هستم</p>
                 </h1>
 
                 <p className="max-w-2xl text-base leading-8 text-gray-300 sm:text-lg">
@@ -207,16 +231,16 @@ export default function Home() {
                       </div>
 
                       <div className="grid grid-cols-2 gap-3 text-sm">
-                        <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-center text-gray-200">
+                        <div className="rounded-2xl border hover:shadow-2xl hover:shadow-gray-700 transition-all hover:border-indigo-700 border-white/10 bg-white/5 px-4 py-3 text-center text-gray-200">
                           UI Systems
                         </div>
-                        <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-center text-gray-200">
+                        <div className="rounded-2xl border hover:shadow-2xl hover:shadow-gray-700 transition-all hover:border-indigo-700 border-white/10 bg-white/5 px-4 py-3 text-center text-gray-200">
                           Responsive
                         </div>
-                        <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-center text-gray-200">
+                        <div className="rounded-2xl border hover:shadow-2xl hover:shadow-gray-700 transition-all hover:border-indigo-700 border-white/10 bg-white/5 px-4 py-3 text-center text-gray-200">
                           Motion
                         </div>
-                        <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-center text-gray-200">
+                        <div className="rounded-2xl border hover:shadow-2xl hover:shadow-gray-700 transition-all hover:border-indigo-700 border-white/10 bg-white/5 px-4 py-3 text-center text-gray-200">
                           Clean Code
                         </div>
                       </div>
@@ -229,7 +253,7 @@ export default function Home() {
 
           <div className="grid gap-5">
             {strengths.map(({ title, description, icon: Icon }) => (
-              <div
+              <Link to="/projects" key={title}><div
                 key={title}
                 className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-300 hover:border-blue-400/30 hover:bg-white/10"
               >
@@ -240,7 +264,7 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-white">{title}</h3>
                 </div>
                 <p className="mt-4 text-sm leading-8 text-gray-300 sm:text-base">{description}</p>
-              </div>
+              </div></Link>
             ))}
           </div>
 
@@ -320,8 +344,8 @@ export default function Home() {
                 سلام من
               </h4>
               <div>
-                <h1 className="mb-4 text-3xl font-bold lg:text-4xl">
-                  <span className="text-indigo-900">یوسف فرح بخش</span> هستم
+                <h1 className="mb-4 text-3xl font-[Rezvan] lg:text-4xl">
+                  <span className="font-[Rezvan] text-indigo-900">یوسف فرح بخش</span> هستم
                 </h1>
                 <p className="text-base font-bold opacity-40 lg:text-lg">Front-end Developer / Ui Designer</p>
               </div>
@@ -392,18 +416,18 @@ export default function Home() {
           <div className="mx-auto flex max-w-7xl flex-col gap-12">
             <div className="grid gap-5 lg:grid-cols-3">
               {strengths.map(({ title, description, icon: Icon }) => (
-                <div
-                  key={title}
-                  className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-300 hover:border-blue-400/30 hover:bg-white/10"
-                >
-                  <div className="flex items-center justify-end gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-300">
+                <Link to={"/projects"} key={title}>
+                  <div
+                    className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-300 hover:border-blue-400/30 hover:bg-white/10"
+                  >
+                    <div className="flex items-center justify-end gap-3">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-300">
                       <Icon className="text-lg" />
                     </div>
                     <h3 className="text-xl font-bold text-white">{title}</h3>
                   </div>
                   <p className="mt-4 text-sm leading-8 text-gray-300 lg:text-base">{description}</p>
-                </div>
+                </div></Link>
               ))}
             </div>
 

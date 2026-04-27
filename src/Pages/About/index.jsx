@@ -2,6 +2,7 @@ import React from 'react';
 import { FaEnvelope, FaGithub, FaLinkedinIn, FaLocationDot, FaPhone, FaTelegram,FaCircleCheck } from 'react-icons/fa6';
 import Particle from '../../Components/Particle';
 import Type from '../../Components/Type';
+import Seo from '../../Components/Seo';
 import Logo from '../../assets/TechIcons/logo.svg';
 
 const skills = [
@@ -28,7 +29,7 @@ const roleStrings = [
 ];
 
 const stats = [
-  { value: '5+', label: 'مسلط به فریم ورک ها' },
+  { value: '5+', label: ' مسلط به فریم ورک ها و کتابخانه ها' },
   { value: '6+', label: 'پروژه تکمیل شده' },
   { value: '100%', label: 'طراحی واکنش‌گرا' },
 ];
@@ -50,6 +51,10 @@ const socialLinks = [
 export default function About() {
   return (
     <section className="relative z-0 min-h-screen overflow-hidden bg-brand-navy pt-28 text-white" dir="rtl">
+      <Seo
+        title="About Yousef Farahbakhsh | Front-End Developer"
+        description="Learn more about Yousef Farahbakhsh, a front-end developer focused on React, responsive UI, modern design, and user-friendly web experiences."
+      />
       <Particle className="pointer-events-none hidden md:block !fixed !inset-0 z-0" />
 
       <div className="absolute top-20 right-4 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl sm:right-10" />
@@ -144,13 +149,13 @@ export default function About() {
 
               <div className="mt-6 space-y-4">
                 {contactItems.map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="flex hover:bg-indigo-600/10 items-center justify-between gap-4 rounded-2xl border border-white/10 group bg-slate-950/35 px-4 py-4">
+                  <div key={label} className="flex hover:bg-indigo-600/10 items-center transition-all justify-between gap-4 rounded-2xl border border-white/10 group bg-slate-950/35 px-4 py-4">
                     <div className="text-right">
                       <div className="text-sm text-gray-400">{label}</div>
                       <div dir='ltr' className="mt-1  text-sm text-gray-200 sm:text-base ">{value}</div>
                     </div>
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-300">
-                      <Icon className="text-lg group-hover:text-indigo-600" />
+                      <Icon className="text-lg transition-all group-hover:text-indigo-600" />
                     </div>
                   </div>
                 ))}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yousef-fhb.ir/sitemap.xml

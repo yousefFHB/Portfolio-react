@@ -1,15 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Nav from './Components/Nav'
 import Footer from './Components/Footer'
 import Home from "./Pages/Home"
 import About from './Pages/About'
 import Projects from "./Pages/Projects"
+import ProjectDetail from './Pages/ProjectDetail'
 import PageWrapper from "./Components/PageWrapper"
+import NotFound from './Pages/NotFound'
 import { AnimatePresence } from 'framer-motion'
 import { Toaster } from 'react-hot-toast'
 import { Route, Routes, useLocation } from 'react-router-dom'
 export default function App() {
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, [location.pathname]);
 
   return (
     <>
@@ -25,6 +34,15 @@ export default function App() {
             <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
             <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
             <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
+            <Route path="/projects/:slug" element={<PageWrapper><ProjectDetail /></PageWrapper>} />
+            <Route
+              path="*"
+              element={
+                <PageWrapper>
+                  <NotFound />
+                </PageWrapper>
+              }
+            />
           </Routes>
         </AnimatePresence>
       </main>

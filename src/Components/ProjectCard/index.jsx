@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaArrowLeftLong, FaArrowUpRightFromSquare, FaCode, FaGithub, FaImage, FaLayerGroup } from 'react-icons/fa6';
+import { FaArrowLeftLong, FaArrowUpRightFromSquare, FaCode, FaGithub, FaImage } from 'react-icons/fa6';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function ProjectCard({
   title,
@@ -13,11 +14,42 @@ export default function ProjectCard({
   liveLink,
   repoLink,
   image,
+  video,
+  slug,
 }) {
   const hasImage = Boolean(image);
+  const hasVideo = Boolean(video);
+  const navigate = useNavigate();
+  const detailPath = `/projects/${slug}`;
+
+  const handleCardClick = (event) => {
+    if (event.target.closest('a')) {
+      return;
+    }
+
+    navigate(detailPath);
+  };
+
+  const handleCardKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      navigate(detailPath);
+    }
+  };
+
+  const stopCardNavigation = (event) => {
+    event.stopPropagation();
+  };
 
   return (
-    <article className="group relative overflow-hidden rounded-[30px] border border-white/10 bg-white/5 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-blue-400/40 hover:bg-white/[0.08]">
+    <article
+      className="group relative cursor-pointer overflow-hidden rounded-[30px] border border-white/10 bg-white/5 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-blue-400/40 hover:bg-white/[0.08]"
+      role="link"
+      tabIndex={0}
+      onClick={handleCardClick}
+      onKeyDown={handleCardKeyDown}
+      aria-label={`Open ${title}`}
+    >
       <div className={`relative overflow-hidden border-b border-white/10 bg-gradient-to-br ${accent} p-5 sm:p-6`}>
         <div className="absolute -left-10 top-8 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
         <div className="absolute bottom-0 right-0 h-24 w-24 rounded-full bg-black/20 blur-2xl" />
@@ -33,13 +65,31 @@ export default function ProjectCard({
         </div>
 
         <div className="relative z-10 mt-6 overflow-hidden rounded-[26px] border border-white/15 bg-slate-950/40 shadow-xl shadow-slate-950/30">
-          <div className="relative aspect-[16/10] overflow-hidden">
-            {hasImage ? (
+          <div className="relative aspect-[22/10] overflow-hidden">
+            {hasVideo ? (
+              <>
+                <video
+                  src={video}
+                  poster={image}
+                  className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label={title}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                <div className="absolute left-4 top-4 rounded-full border border-white/20 bg-slate-950/45 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur-md">
+                  Project Preview
+                </div>
+              </>
+            ) : hasImage ? (
               <>
                 <img
                   src={image}
                   alt={title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                 <div className="absolute left-4 top-4 rounded-full border border-white/20 bg-slate-950/45 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur-md">
@@ -123,22 +173,33 @@ export default function ProjectCard({
             <FaCode className="text-blue-400" />
             نکات برجسته
           </div>
-          <ul className="space-y-2 text-gray-300">
+          <ul dir='rtl' className="space-y-2 text-gray-300">
             {highlights.map((item) => (
-              <li key={item} className="flex items-start justify-end gap-3">
+              <li dir='rtl' key={item} className="flex items-start justify-start gap-3">
+                 <span dir='rtl' className="mt-2 h-2 w-2 rounded-full bg-blue-400" />
                 <span>{item}</span>
-                <span className="mt-2 h-2 w-2 rounded-full bg-blue-400" />
+               
               </li>
             ))}
           </ul>
         </div>
 
         <div className="flex flex-wrap justify-end gap-3">
+          <Link
+            to={detailPath}
+            onClick={stopCardNavigation}
+            className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-5 py-3 font-semibold text-white transition-all duration-300 hover:bg-blue-500"
+          >
+            <FaArrowLeftLong className="text-sm" />
+            جزئیات پروژه
+          </Link>
+
           {liveLink ? (
             <a
               href={liveLink}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={stopCardNavigation}
               className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-5 py-3 font-semibold text-white transition-all duration-300 hover:bg-blue-500"
             >
               <FaArrowUpRightFromSquare className="text-sm" />
@@ -151,6 +212,7 @@ export default function ProjectCard({
               href={repoLink}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={stopCardNavigation}
               className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 font-semibold text-white transition-all duration-300 hover:border-white/30 hover:bg-white/10"
             >
               <FaGithub className="text-base" />

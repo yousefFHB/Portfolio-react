@@ -1,6 +1,5 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import { CgHome } from 'react-icons/cg';
 import { Link,useLocation } from "react-router-dom"
 import { CgGitFork } from 'react-icons/cg';
 import { AiFillStar } from 'react-icons/ai';
@@ -9,7 +8,14 @@ export default function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location=useLocation();
-  const isAboutPage = location.pathname === '/about' || location.pathname === '/projects';
+  const isProjectsPage = location.pathname.startsWith('/projects');
+  const isAboutPage = location.pathname === '/about' || isProjectsPage;
+  const isHomePage = location.pathname === '/';
+  const logoClasses = isAboutPage
+    ? 'text-gray-300 hover:bg-gray-300 hover:text-brand-navy'
+    : isHomePage
+      ? 'text-gray-300 hover:bg-gray-300 hover:text-brand-navy md:text-brand-navy md:hover:bg-[var(--color-brand-navy)] md:hover:text-white'
+      : 'text-white hover:bg-[var(--color-brand-navy)] hover:text-white';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,8 +55,7 @@ export default function Nav() {
       text-2xl sm:text-3xl font-[pen] 
       cursor-pointer rounded-2xl px-5 
       transition-all duration-300 
-      hover:bg-[var(--color-brand-navy)] 
-      ${isAboutPage ? 'text-gray-300 hover:bg-gray-300  hover:text-brand-navy': 'hover:text-white'}
+      ${logoClasses}
       
       
     `}
