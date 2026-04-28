@@ -1,0 +1,14 @@
+{
+  "name": "Yousef Farahbakhsh Portfolio",
+  "short_name": "Yousef Portfolio",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#0B1F3A",
+  "background_color": "#0B1F3A",
+  "display": "standalone"
+}

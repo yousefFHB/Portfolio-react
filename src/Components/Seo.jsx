@@ -1,11 +1,15 @@
 import { useEffect } from 'react';
 
 const DEFAULT_TITLE = 'یوسف فرح بخش | Yousef Farahbakhsh | Front-End Developer Portfolio';
+
 const DEFAULT_DESCRIPTION =
   'Portfolio of Yousef Farahbakhsh (یوسف فرح بخش), front-end developer. Explore React, Next.js, Tailwind CSS, responsive UI, and modern web projects.';
+
 const DEFAULT_KEYWORDS =
   'Yousef Farahbakhsh, Yousef, یوسف فرح بخش, یوسف فرحبخش, یوسف, توسعه دهنده فرانت اند, برنامه نویس فرانت اند, front-end developer, React developer, portfolio, Next.js, Tailwind CSS, JavaScript, web developer';
+
 const DEFAULT_IMAGE = '/Home-page.png';
+
 function upsertMeta(selector, attributes, content) {
   let element = document.head.querySelector(selector);
 
@@ -21,16 +25,26 @@ function upsertMeta(selector, attributes, content) {
   element.setAttribute('content', content);
 }
 
-function upsertLink(rel, href) {
-  let element = document.head.querySelector(`link[rel="${rel}"]`);
+function upsertLink(rel, href, extraAttributes = {}) {
+  let selector = `link[rel="${rel}"]`;
+
+  if (extraAttributes.sizes) {
+    selector += `[sizes="${extraAttributes.sizes}"]`;
+  }
+
+  let element = document.head.querySelector(selector);
 
   if (!element) {
     element = document.createElement('link');
-    element.setAttribute('rel', rel);
     document.head.appendChild(element);
   }
 
+  element.setAttribute('rel', rel);
   element.setAttribute('href', href);
+
+  Object.entries(extraAttributes).forEach(([key, value]) => {
+    element.setAttribute(key, value);
+  });
 }
 
 function upsertStructuredData(structuredData) {
@@ -42,6 +56,7 @@ function upsertStructuredData(structuredData) {
   }
 
   const script = existing || document.createElement('script');
+
   script.id = 'page-structured-data';
   script.type = 'application/ld+json';
   script.textContent = JSON.stringify(structuredData);
@@ -68,26 +83,94 @@ export default function Seo({
     const imageUrl = new URL(image || DEFAULT_IMAGE, window.location.origin).href;
     const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
 
+    // Page basics
     document.title = pageTitle;
     document.documentElement.lang = 'fa';
 
+    // Standard SEO
     upsertMeta('meta[name="description"]', { name: 'description' }, pageDescription);
     upsertMeta('meta[name="keywords"]', { name: 'keywords' }, pageKeywords);
-    upsertMeta('meta[name="author"]', { name: 'author' }, 'Yousef Farahbakhsh | یوسف فرح بخش');
+    upsertMeta(
+      'meta[name="author"]',
+      { name: 'author' },
+      'Yousef Farahbakhsh | یوسف فرح بخش'
+    );
+
+    upsertMeta(
+      'meta[name="application-name"]',
+      { name: 'application-name' },
+      'Yousef Farahbakhsh Portfolio'
+    );
+
+    upsertMeta(
+      'meta[name="apple-mobile-web-app-title"]',
+      { name: 'apple-mobile-web-app-title' },
+      'Yousef Portfolio'
+    );
+
     upsertMeta('meta[name="robots"]', { name: 'robots' }, robotsContent);
     upsertMeta('meta[name="googlebot"]', { name: 'googlebot' }, robotsContent);
+
+    // Open Graph
     upsertMeta('meta[property="og:type"]', { property: 'og:type' }, type);
-    upsertMeta('meta[property="og:site_name"]', { property: 'og:site_name' }, 'Yousef Farahbakhsh | یوسف فرح بخش');
+
+    upsertMeta(
+      'meta[property="og:site_name"]',
+      { property: 'og:site_name' },
+      'Yousef Farahbakhsh Portfolio'
+    );
+
     upsertMeta('meta[property="og:locale"]', { property: 'og:locale' }, 'fa_IR');
     upsertMeta('meta[property="og:title"]', { property: 'og:title' }, pageTitle);
-    upsertMeta('meta[property="og:description"]', { property: 'og:description' }, pageDescription);
+    upsertMeta(
+      'meta[property="og:description"]',
+      { property: 'og:description' },
+      pageDescription
+    );
     upsertMeta('meta[property="og:url"]', { property: 'og:url' }, pageUrl);
     upsertMeta('meta[property="og:image"]', { property: 'og:image' }, imageUrl);
-    upsertMeta('meta[name="twitter:card"]', { name: 'twitter:card' }, 'summary_large_image');
+
+    // Twitter
+    upsertMeta(
+      'meta[name="twitter:card"]',
+      { name: 'twitter:card' },
+      'summary_large_image'
+    );
+
     upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title' }, pageTitle);
-    upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description' }, pageDescription);
+
+    upsertMeta(
+      'meta[name="twitter:description"]',
+      { name: 'twitter:description' },
+      pageDescription
+    );
+
     upsertMeta('meta[name="twitter:image"]', { name: 'twitter:image' }, imageUrl);
+
+    // Canonical
     upsertLink('canonical', pageUrl);
+
+    // Favicons
+    upsertLink('icon', '/favicon.svg', {
+      type: 'image/svg+xml',
+    });
+
+    upsertLink('icon', '/favicon-32x32.png', {
+      type: 'image/png',
+      sizes: '32x32',
+    });
+
+    upsertLink('icon', '/favicon-16x16.png', {
+      type: 'image/png',
+      sizes: '16x16',
+    });
+
+    upsertLink('apple-touch-icon', '/favicon-192.png');
+
+    // Manifest
+    upsertLink('manifest', '/site.webmanifest');
+
+    // Structured Data
     upsertStructuredData(structuredData);
   }, [title, description, keywords, image, type, noindex, structuredData]);
 
