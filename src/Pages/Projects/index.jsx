@@ -43,7 +43,7 @@ export const projects = [
     category: 'Quiz App',
     slug: 'quiz-app',
     description:
-      'وب اپ برای برگزاری ازمون با قابلیت ساخت ازمون مدنظر برای کاربران دیگر همراه با لاگین', stack: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Responsive UI','Auth'],
+      'وب اپ برای برگزاری ازمون با قابلیت ساخت ازمون مدنظر برای کاربران دیگر همراه با لاگین', stack: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Responsive UI', 'Auth'],
     highlights: [
       'در دسترس برای دو زبان فارسی و انگلیسی / همچنین آماده برای ساخت ازمون در هر دو زبان',
       'طراحی سکشن های متفاوت برای ساخت ازمون / شرکت در آزمون و دیدن ازمون ها',
@@ -55,7 +55,7 @@ export const projects = [
     liveLink: '',
     repoLink: 'https://github.com/yousefFHB/React-Quiz-App',
     image: QuizImage,
-    video:Quizvd
+    video: Quizvd
 
   },
   {
@@ -76,7 +76,7 @@ export const projects = [
     liveLink: '',
     repoLink: 'https://github.com/yousefFHB/ML-Heart-Disease-Prediction',
     image: Heart,
-    video:Heartvd
+    video: Heartvd
   },
   {
     title: 'ویترین محصولات فروشگاهی',
@@ -96,7 +96,7 @@ export const projects = [
     liveLink: '',
     repoLink: 'https://github.com/yousefFHB/Login-Fetch-route',
     image: cart,
-    video:Cartvd
+    video: Cartvd
 
   },
   {
@@ -116,8 +116,8 @@ export const projects = [
     previewLabel: 'Clone website',
     liveLink: '',
     repoLink: 'https://github.com/yousefFHB/porsche-website-clone',
-    image : porsche,
-    video:Porschevd
+    image: porsche,
+    video: Porschevd
 
   },
   {
@@ -126,7 +126,7 @@ export const projects = [
     slug: 'bootstrap-website',
     description:
       'طراحی وبسایت بکمک bootstrap',
-    stack: ['Bootstrap','Js','Html','Responsiv Ui'],
+    stack: ['Bootstrap', 'Js', 'Html', 'Responsiv Ui'],
     highlights: [
       'استفاده از کامپوننت های آماده bootsrap',
       'استفاده از اسلایدر ',
@@ -137,7 +137,7 @@ export const projects = [
     previewLabel: 'Product fetch + Bootstrap',
     liveLink: '',
     repoLink: 'https://github.com/yousefFHB/responsive-product-page-bootstrap',
-    image:bs
+    image: bs
   },
 ];
 
@@ -264,13 +264,18 @@ export default function Projects() {
                   </div>
                   <div className="mt-5 grid grid-cols-3 gap-3">
                     {[1, 2, 3, 4, 5, 6].map((item) => (
-                      <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                        <div className="h-16 rounded-2xl bg-gradient-to-br from-blue-500/30 to-cyan-400/10" />
-                        <div className="mt-3 h-2 rounded-full bg-white/20" />
-                        <div className="mt-2 h-2 w-2/3 rounded-full bg-white/10" />
+                      <div
+                        key={item}
+                        className="group relative rounded-2xl border border-white/10 bg-white/5 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10 hover:shadow-lg hover:shadow-blue-500/10"
+                      >
+                        <div className="h-16 rounded-2xl bg-gradient-to-br from-blue-500/30 to-cyan-400/10 transition-all duration-300 group-hover:scale-105 group-hover:from-blue-500/50 group-hover:to-cyan-400/30" />
+
+                        <div className="mt-3 h-2 w-full rounded-full bg-white/20 transition-all duration-300 group-hover:bg-white/40" />
+                        <div className="mt-2 h-2 w-2/3 rounded-full bg-white/10 transition-all duration-300 group-hover:w-3/4 group-hover:bg-white/20" />
                       </div>
                     ))}
                   </div>
+
                 </div>
               </div>
             </div>
@@ -310,23 +315,23 @@ export default function Projects() {
 
         <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-  <h3 className="text-3xl font-bold text-white">تکنولوژی‌های مورد استفاده</h3>
+            <h3 className="text-3xl font-bold text-white">تکنولوژی‌های مورد استفاده</h3>
 
-  <div className="mt-8 space-y-3 text-gray-200">
-    <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">
-      توسعه رابط کاربری مدرن با <strong>React</strong> و مدیریت وضعیت پیشرفته با <strong>Redux</strong>
-    </div>
-    <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">
-      مسیریابی حرفه‌ای صفحات با <strong>React Router</strong> و ساختار ماژولار
-    </div>
-    <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">
-      طراحی responsive و زیبا با ترکیب <strong>Bootstrap</strong>، <strong>Sass</strong>، <strong>HTML</strong> و <strong>CSS</strong>
-    </div>
-    <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">
-      پیاده‌سازی منطق سمت کلاینت با <strong>JavaScript</strong> و بهینه‌سازی عملکرد
-    </div>
-  </div>
-</div>
+            <div className="mt-8 space-y-3 text-gray-200">
+              <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">
+                توسعه رابط کاربری مدرن با <strong>React</strong> و مدیریت وضعیت پیشرفته با <strong>Redux</strong>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">
+                مسیریابی حرفه‌ای صفحات با <strong>React Router</strong> و ساختار ماژولار
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">
+                طراحی responsive و زیبا با ترکیب <strong>Bootstrap</strong>، <strong>Sass</strong>، <strong>HTML</strong> و <strong>CSS</strong>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3">
+                پیاده‌سازی منطق سمت کلاینت با <strong>JavaScript</strong> و بهینه‌سازی عملکرد
+              </div>
+            </div>
+          </div>
 
 
           <div className="grid gap-6 sm:grid-cols-3 lg:grid-cols-1">

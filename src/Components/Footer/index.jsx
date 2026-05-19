@@ -78,7 +78,7 @@ export default function Footer() {
                 <FaTelegramPlane className="text-lg" />
               </a>
               <a
-                href="https://web.bale.ai/youseffhb"
+                href="https://web.bale.ai/chat?uid=1986923058"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-gray-300 hover:bg-blue-600 hover:text-white transition-all duration-300"

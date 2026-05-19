@@ -153,13 +153,13 @@ export default function Home() {
         <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-indigo-500/10 blur-3xl" />
 
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-14 px-4 pb-20 sm:px-6 lg:px-8">
-          <div className="grid min-h-[calc(100vh-8rem)] items-center gap-10">
+          <div className="grid min-h-[calc(100vh-8rem)] items-center gap-20">
             <div className="space-y-7">
-              <span className="inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-500/10 px-4 py-2 text-sm text-blue-100">
+              <span className="inline-flex items-center  gap-10 rounded-full border border-blue-400/20 bg-blue-500/10 px-4 py-2 text-[10px] text-blue-100">
                 Front-end developer  / UI Designer
               </span>
 
-              <div className="space-y-5">
+              <div className="space-y-10">
                 <h1 className="text-4xl font-Bold leading-tight sm:text-5xl">
                   سلام، من
                   <span className="block font-[Rezvan] text-blue-400">یوسف فرح بخش</span>
@@ -303,14 +303,12 @@ export default function Home() {
 
             <div className="absolute left-[7%] top-1/2 z-20 hidden h-[68%] w-[34%] -translate-y-1/2 rounded-2xl shadow-lg transition-all duration-500 hover:scale-105 md:block lg:left-[10%] lg:h-[80%] lg:w-[30%] overflow-hidden">
               {hasHeroImage ? (
-                // حالت اول: نمایش تصویر اصلی
                 <img
                   src={optionalHeroImageSrc}
                   alt="About Hero"
                   className="w-full h-full object-contain"
                 />
               ) : (
-                // حالت دوم: نمایش دمو (جایگزین)
                 <div className="w-full h-full flex flex-col items-center justify-center bg-linear-to-br from-brand-navy to-indigo-800 text-white p-6 text-center">
                   <div className="mb-4">
                     <svg

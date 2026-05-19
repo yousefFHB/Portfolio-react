@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaEnvelope, FaGithub, FaLinkedinIn, FaLocationDot, FaPhone, FaTelegram,FaCircleCheck } from 'react-icons/fa6';
+import { FaEnvelope, FaGithub, FaLinkedinIn, FaLocationDot, FaPhone, FaTelegram, FaCircleCheck } from 'react-icons/fa6';
 import Particle from '../../Components/Particle';
 import Type from '../../Components/Type';
 import Seo from '../../Components/Seo';
@@ -17,7 +17,7 @@ const skills = [
   'Tailwind CSS',
   'Material UI',
   'REST APIs',
-  'Git','Bootsrap',
+  'Git', 'Bootsrap',
 ];
 
 const roleStrings = [
@@ -35,12 +35,12 @@ const stats = [
 ];
 
 const contactItems = [
-  { icon: FaEnvelope, label: 'ایمیل', value: 'youseffhbcc@gmail.com' },
-  { icon: FaPhone, label: 'تلفن', value: '09152498291' },
-  { icon: FaLocationDot, label: 'موقعیت', value: 'ایران، مشهد' },
-  { icon: FaTelegram, label: 'تلگرام', value: '@Yousef_fhb' },
-  { icon: FaCircleCheck, label: 'bale', value: '@youseffhb' },
+  { icon: FaEnvelope, label: 'ایمیل', value: 'youseffhbcc@gmail.com', href: 'mailto:youseffhbcc@gmail.com' },
+  { icon: FaPhone, label: 'تلفن', value: '09152498291', href: 'tel:+989152498291' },
+  { icon: FaTelegram, label: 'تلگرام', value: '@Yousef_fhb', href: 'https://t.me/Yousef_fhb' },
+  { icon: FaCircleCheck, label: 'بله', value: '@youseffhb', href: 'https://web.bale.ai/chat?uid=1986923058' },
 ];
+
 
 const socialLinks = [
   { icon: FaGithub, href: 'https://github.com/yousefFHB', label: 'GitHub' },
@@ -148,16 +148,21 @@ export default function About() {
               <h4 className="text-2xl font-bold text-blue-400">اطلاعات تماس</h4>
 
               <div className="mt-6 space-y-4">
-                {contactItems.map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="flex hover:bg-indigo-600/10 items-center transition-all justify-between gap-4 rounded-2xl border border-white/10 group bg-slate-950/35 px-4 py-4">
+                {contactItems.map(({ icon: Icon, label, value, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    className="flex hover:bg-brand-navy items-center transition-all justify-between gap-4 rounded-2xl border border-white/10 group bg-slate-950/35 px-4 py-4 "
+                  >
                     <div className="text-right">
                       <div className="text-sm text-gray-400">{label}</div>
-                      <div dir='ltr' className="mt-1  text-sm text-gray-200 sm:text-base ">{value}</div>
+                      <div dir='ltr' className="mt-1 text-sm text-gray-200 sm:text-base">{value}</div>
                     </div>
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-300">
-                      <Icon className="text-lg transition-all group-hover:text-indigo-600" />
+                      <Icon className="text-lg transition-all group-hover:text-gray-200" />
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
 
@@ -174,6 +179,7 @@ export default function About() {
                 ))}
               </div>
             </div>
+
 
             <div className="rounded-[30px] border border-white/10 bg-white/5 p-6 backdrop-blur-2xl sm:p-8">
               <h4 className="text-right text-2xl font-bold text-blue-400">ارسال پیام</h4>
